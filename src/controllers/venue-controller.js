@@ -81,9 +81,30 @@ const update = async (req, res) => {
     }
 }
 
+const getAll = async (req, res) => {
+    try {
+        const venues = await venueService.getAllVenues(req.query);
+        return res.status(200).json({
+            data: venues,
+            success: true,
+            message: 'Successfully fetched all venues',
+            err: {}
+        });
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({
+            data: {},
+            success: false,
+            message: 'Not able to fetch the venues',
+            err: error
+        });
+    }
+}
+
 module.exports={
     create,
     destroy,
     get,
-    update
+    update,
+    getAll
 }
