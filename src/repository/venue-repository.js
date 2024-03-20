@@ -1,28 +1,10 @@
+const CrudRespository = require('./crud-repository');
 const { Venue } =require('../models/index');
 
-class VenueRepository{
-    async createVenue({ name }){
-        try{
-            const venue = await Venue.create({name});
-            return venue;
-        }catch(error){
-            throw {error};
-        }
+class VenueRepository extends CrudRespository{
+    constructor(){
+        super(Venue);
     }
-
-    async deleteVenue(venueId){
-        try{
-            await Venue.destroy({
-                where:{
-                    id: venueId
-                }
-            });
-        }catch(error){
-            throw {error};
-        }
-    }
-
-    
 }
 
 module.exports = VenueRepository;
