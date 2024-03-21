@@ -1,6 +1,7 @@
 const express =require('express');
 const VenueController = require('../../controllers/venue-controller');
 const ClubController = require('../../controllers/club-controller');
+const EventController =require('../../controllers/event-controller');
 
 const router = express.Router();
 router.post('/venue',VenueController.create);
@@ -14,6 +15,12 @@ router.delete('/club/:id',ClubController.destroy);
 router.patch('/club/:id',ClubController.update);
 router.get('/club/:id',ClubController.get);
 router.get('/club',ClubController.getAll);
+
+router.post('/event',EventController.create);
+router.delete('/event/:id',EventController.destroy);
+router.patch('/event/:id',EventController.update);
+router.get('/event/:id',EventController.get);
+router.get('/event',EventController.getAll);
 // router.get('/city/:id',CityController.get);
 // router.patch('/city/:id',CityController.update);
 
