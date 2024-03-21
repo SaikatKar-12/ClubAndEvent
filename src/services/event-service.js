@@ -21,7 +21,7 @@ class EventService extends CrudService{
     }
     async getAllEvents(filter) {
         try {
-            const events = await eventRepository.getAllEvents({name: filter.name});
+            const events = await eventRepository.getAllEvents(filter);
             return events;
         } catch (error) {
             console.log("Something went wrong at service layer");
