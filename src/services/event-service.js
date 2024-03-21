@@ -10,7 +10,7 @@ class EventService extends CrudService{
     async create(data){
         try {
             if(!compareTime(data.endingTime,data.startingTime)){
-                throw {error : "arrival time can not be less than departure time"};
+                throw {error : "starting time can not be less than ending time"};
             }
             const event = await eventRepository.create(data);
             return event;
