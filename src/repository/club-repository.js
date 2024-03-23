@@ -1,3 +1,4 @@
+const { Op } = require('sequelize');
 const CrudRespository = require('./crud-repository');
 const {Club}=require('../models/index');
 
